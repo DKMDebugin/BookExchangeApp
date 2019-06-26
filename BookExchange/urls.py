@@ -19,9 +19,11 @@ from django.contrib.auth import logout, views as auth_views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='home.html')),
+    path('', include('Book.urls')),
+    path('home/', TemplateView.as_view(template_name='home.html')),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', logout, name='logout'),
+    path('api-auth/', include('rest_framework.urls')),
     path('oauth/', include('social_django.urls', namespace='social'),
             name='social'),
     path('admin/', admin.site.urls),
