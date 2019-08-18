@@ -1,1 +1,1 @@
-web: gunicorn TicketingSystem.wsgi --log-file -
+web: gunicorn BookExchange.wsgi --log-file -

@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView
+from django.shortcuts import get_object_or_404
 
 from .models import Book, Trade
 from .serializers import BookSerializer, TradeSerializer, UserSerializer
@@ -31,11 +32,6 @@ class ProfileEditView(UpdateView):
 class BookListView(ListView):
     template_name='curr_user.html'
     queryset = Book.objects.all()
-
-    def queryset(self, *args, **kwargs):
-        request = self.request
-        user = request.user
-        return Book.objects.filter(user=user)
 
     def get_context_data(self, *args, **kwargs):
         context = super(BookListView, self).get_context_data(*args, **kwargs)
