@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block AdditionalStyling %}
+  <link rel="stylesheet" href="{% static 'static/style/books.css' %}{{'?v=5'}}">
+{% endblock %}
+
+{% block AdditionalScript %}
+  <script src="{% static 'static/script/books.js' %}{{'?v=8'}}" charset="utf-8" defer></script>
+{% endblock %}
+
+{% block content %}
+  <div class="form-div">
+    <form class="form" action="/api/books/" method="POST">
+      <div class="spinner">
+        <i class="fas fa-spinner fa-spin"></i>
+      </div>
+      {% csrf_token %}
+    </form>
+  </div>
+  <div class="books-list">
+    <div class="spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+  </div>
+{% endblock %}

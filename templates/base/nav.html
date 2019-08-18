@@ -1,0 +1,53 @@
+<!-- url shortcuts -->
+{% url 'home' as home_url %}
+{% url 'books' as books_url %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% url 'requests' as requests_url %}
+{% url 'trades' as trades_url %}
+{% url 'users' as users_url %}
+{% url 'user-books' as user_books_url %}
+{% url 'profile' request.user.id as profile_url %}
+{% url 'profile-edit' request.user.id as profile_edit_url %}
+
+
+<nav>
+  <div class="nav" id="nav">
+    <a href="{{home_url}}" class="home">Book Exchange</a>
+    <a href="{{home_url}}" class="{% if request.path == home_url %}active{% endif %}">Home</a>
+    <a href="{{books_url}}" class="{% if request.path == books_url %}active{% endif %}">Books</a>
+    {% if user.is_authenticated %}
+    <div class="dropdown">
+      <button class="dropbtn {% if request.path == requests_url %}active{% endif %}">
+        Requests <i class="fas fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="{{requests_url}}#all-requests" class="drop-content-a {% if request.path == requests_url %}active-min{% endif %}">All Requests</a>
+        <a href="{{requests_url}}#create-requests" class="drop-content-a {% if request.path == requests_url %}active-min{% endif %}">Create Request</a>
+      </div>
+    </div>
+    {% else %}
+    <a href="{{requests_url}}" class="{% if request.path == requests_url %}active{% endif %}">Requests</a>
+    {% endif %}
+    <a href="{{trades_url}}" class="{% if request.path == trades_url %}active{% endif %}">Trades</a>
+    <a href="{{users_url}}" class="{% if request.path == users_url %}active{% endif %}">Users</a>
+    {% if user.is_authenticated %}
+    <div class="dropdown user">
+      <button class="dropbtn">
+        {{ user.username }} <i class="fas fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="{{profile_url}}" class="drop-content-a {% if request.path == profile_url %}active-min{% endif %}">Profile</a>
+        <a href="{{profile_edit_url}}" class="drop-content-a {% if request.path == profile_edit_url %}active-min{% endif %}">Edit Profile</a>
+        <a href="{{user_books_url}}" class="drop-content-a {% if request.path == user_books_url %}active-min{% endif %}">My Books</a>
+        <a href="{{logout_url}}" class="drop-content-a {% if request.path == logout_url %}active-min{% endif %}">Logout</a>
+      </div>
+    </div>
+    {% else %}
+    <a href="{{login_url}}" class="user {% if request.path == login_url %}active{% endif %}">Login</a>
+    {% endif %}
+    <a href="#" class="icon">
+      <i class="fas fa-bars"></i>
+    </a>
+  </div>
+</nav>

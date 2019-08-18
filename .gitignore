@@ -1,4 +1,7 @@
 github_credentials.txt
-db.sq*
+db.sqlite3
 virtualEnv/
 .env
+.DS_Store
+__pycache__
+staticfiles

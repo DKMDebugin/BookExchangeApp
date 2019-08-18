@@ -1,0 +1,56 @@
+.body .book-list {
+  margin: 0 auto 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+.body h3 {
+  color: #607D8B;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+ table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+table tr:hover {
+  background: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: #607D8B;
+  color: white;
+}
+
+.body .form-div {
+  border-radius: 10px;
+  margin: 0 auto 50px auto;
+}
+
+.body .form-div form input, .body .form-div form button {
+  margin-right: 3%;
+  border-radius: 5px;
+  font-size: 95%;
+  outline: none; /*REMOVE DEFAULT INPUT/BUTTON OUTLINE STYLE*/
+}
+.body .form-div form input {
+  color: #607D8B;
+  background-color: #ded8a7;
+  height: 30px;
+  padding: 5px;
+}
+.body .form-div form button {
+  color: #dcdcd9;
+  background-color: #607D8B;
+  height: 45px;
+}

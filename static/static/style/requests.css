@@ -1,0 +1,91 @@
+.body {
+  color: #607D8B;
+}
+
+#all-requests > .container {
+  padding: 5px;
+  margin: 0 auto 10px auto;
+  border-style: solid;
+  border-color: grey;
+  border-width: 2px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  max-width: 500px;
+  grid-gap: 10px;
+  font-size: 15px;
+}
+ .body .bookRight, .body .bookLeft {
+  color: #607D8B;
+  background: #f0f3f5;
+  border-radius: 5px;
+  padding: 2px 5px 2px 5px;
+  margin: 0;
+}
+.body .bookRight {
+  grid-area: 1/1;
+}
+.body .bookLeft {
+  grid-area: 1/2;
+}
+
+
+/* .body .book-list {
+  margin: 0 auto 0 auto;
+}
+
+.body .books-list table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+.body h3 {
+  color: #607D8B;
+}
+
+.body .books-list table td, .body .books-list table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.body .books-list table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.body .books-list table tr:hover {
+  background: #ddd;
+}
+
+.body .books-list table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: #607D8B;
+  color: white;
+} */
+
+.body .form-div {
+  border-radius: 10px;
+  margin: 0 auto 50px auto;
+}
+
+
+.body .form-div form select, .body .form-div form button {
+  display:block;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 95%;
+  outline: none; /*REMOVE DEFAULT INPUT/BUTTON OUTLINE STYLE*/
+}
+.body .form-div form select {
+  color: #607D8B;
+  background-color: #ded8a7;
+  height: 30px;
+  padding: 5px;
+}
+.body .form-div form button {
+  color: #dcdcd9;
+  background-color: #607D8B;
+  height: 45px;
+}

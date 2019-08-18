@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block AdditionalStyling %}
+  <link rel="stylesheet" href="{% static 'static/style/curr_user.css' %}{{'?v=4'}}">
+  <link rel="stylesheet" href="{% static 'static/style/books.css' %}{{'?v=2'}}">
+{% endblock %}
+
+{% block AdditionalScript %}
+  <script src="{% static 'static/script/curr_user.js' %}{{'?v=1'}}" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="spinner">
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+  {% if show == 'profile' %}
+  <div class="user-profile">
+    <div class="detail">
+      <h3>Username:</h3>
+      <p>{{object.username}}</p>
+    </div>
+    <div class="detail">
+      <h3>First Name:</h3>
+      <p>{{object.first_name}}</p>
+    </div>
+    <div class="detail">
+      <h3>Last Name:</h3>
+      <p>{{object.last_name}}</p>
+    </div>
+    <div class="detail">
+      <h3>Email Address:</h3>
+      <p>{{object.email}}</p>
+    </div>
+    <div class="detail">
+      <h3>last Login</h3>
+      <p>{{object.last_login}}</p>
+    </div>
+    <div class="detail">
+      <h3>Date Joined:</h3>
+      <p>{{object.date_joined}}</p>
+    </div>
+  </div>
+  {% elif show == 'user_books' %}
+  <div class="user-book-list">
+    <h3>My Books</h3>
+    <table>
+      <tr>
+        <th>Owner</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+        {% for object in object_list %}
+        <tr>
+          <td>{{object.user}}</td>
+          <td>{{object.title}}</td>
+          <td>{{object.description}}</td>
+        </tr>
+        {% endfor %}
+        <!-- <p>User has no books.</p> -->
+    </table>
+
+  </div>
+  {% elif show == 'edit' %}
+  <div class="edit-profile">
+    <div class="heading">
+      <h3>Edit Profile</h3>
+    </div>
+    <form class="form" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" name="button">Submit</button>
+    </form>
+  </div>
+  {% endif  %}
+{% endblock %}

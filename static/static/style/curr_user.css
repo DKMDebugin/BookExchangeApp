@@ -1,0 +1,60 @@
+.body {
+  color: #607D8B;
+}
+.body .user-profile {
+  max-width: 600px;
+  width: 80%;
+  background: #ded8a7;
+  margin: 0 auto;
+  border: 0;
+  padding: 10px;
+  border-radius: 20px;
+}
+.body .user-profile .detail h3, .body .user-profile .detail p{
+  display: inline;
+}
+
+.body .user-profile .detail {
+  margin: 5%;
+}
+.body .edit-profile .heading {
+  margin: 5px auto;
+  padding: 10px;
+  width: 150px;
+}
+/* .body .edit-profile .heading h1 {
+  width
+} */
+form {
+  max-width: 600px;
+  width: 90%;
+  background: #ccc9b296;
+  margin: 5px auto;
+  padding: 10px;
+  border-radius: 20px;
+
+}
+form p span {
+  display: none;
+}
+form p label {
+  color: #607D8B;
+}
+form p input {
+  max-width: 200px;
+  width: 80%;
+  padding: 7px 2px;
+  font-size: 15px;
+  color: #607D8B;
+  background: white;
+}
+
+form button {
+  width: 100px;
+  height: 60px;
+  font-size: 1.17em;
+  border-radius: 10px;
+  margin-left: auto;
+  background: #607D8B;
+  color: white;
+}

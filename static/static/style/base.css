@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+}
+.nav, .body {
+  padding: 0 10%;
+}
+/* add background to top nav */
+.nav {
+  background: #607D8B;
+  overflow: hidden;
+  /* width: 100%; */
+}
+
+/* style the links inside the nav bar */
+.nav a {
+  cursor: pointer;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.nav a.home {
+  padding-left: 0;
+}
+
+/* change color of links on hover */
+.nav a:hover {
+  color:#ded8a7;
+}
+
+/* add a class active to highlight the current page */
+.nav a.active {
+  color: #ded8a7;
+  /* color: #607D8B; */
+}
+.nav a.active-min {
+  /* color: #ded8a7; */
+  color: #d08f8a;
+}
+/* hide the link that should open & close the nav on small screen */
+.nav .icon {
+  display: none;
+}
+
+/* dropdown menu in nav bar */
+
+/* dropdown container - needed to position the dropdown content */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+/* style the dropdown btn to fit inside the nav */
+.dropdown .dropbtn {
+  width: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+/* style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #ded8a7;
+  min-width: 160px;
+  /* height: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+/* style the links inside the dropdown */
+.dropdown-content .drop-content-a {
+  float: none;
+  color: #607D8B;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+/* add background on nav links and the dropdown btn on hover */
+.dropdown:hover .dropbtn {
+  color: #ded8a7;
+}
+/* add a  grey background to dropdown links on hover */
+.dropdown-content a:hover {
+  color: black;
+}
+/* show the dropdown menu when user moves the mouse over the dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* On big screen, this moves the login/logout link to the right */
+@media screen and (min-width: 751px) {
+  .nav *.user {
+    float: right;
+    display: block;
+  }
+}
+
+/* when screen on <=750px, hide all link & dropdown btn except the first one & show the icon link */
+@media screen and (max-width: 750px) {
+  .nav > a:not(:first-child), .dropdown .dropbtn { display: none; }
+  .nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/*
+when the icon is clicked, a 'responsive' class will be added to the nav bar
+which makes the links to be display vertically & makes it look good
+ */
+@media screen and (max-width: 750px) {
+  .nav.responsive {
+    display: relative;
+    padding: 0 10%;
+  }
+  .nav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10%;
+  }
+  .nav.responsive a:not(:last-child) {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 50%;
+  }
+  .nav.responsive .dropdown { float: none; }
+  .nav.responsive .dropdown-content { position: relative; }
+  .nav.responsive .dropdown .dropbtn {
+    display: block;
+    /* width: 50%; */
+    text-align: left;
+  }
+}
+
+/* general style for div.body */
+.body {
+  margin: 50px auto;
+}
+.spinner {
+  font-size: 100px;
+  text-align: center;
+  color: #607D8B;
+}

@@ -1,0 +1,18 @@
+.body {
+  max-width: 800px;
+}
+.body .container {
+  background: #ded8a7;
+  color: #467186;
+  padding: 10%;
+  border-radius: 30px;
+}
+
+.body .container a {
+  text-decoration: none;
+  color: #d46e6e;
+}
+
+.body .container a:hover {
+  color: #ec2d2d;
+}

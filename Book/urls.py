@@ -2,9 +2,15 @@
 
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import BookViewSet, TradeViewSet, UserViewSet, api_root
 from rest_framework import renderers
 from rest_framework.routers import DefaultRouter
+from django.views.generic import TemplateView
+
+from .views import (
+        BookViewSet, TradeViewSet,
+        UserViewSet, api_root, ProfileView,
+        BookListView, ProfileEditView,
+        )
 
 
 # bind urls to viewsets
@@ -41,15 +47,22 @@ router.register(r'trades', TradeViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('api/', include(router.urls)),
+    path('profile/<int:pk>/', ProfileView.as_view(), name='profile'),
+    path('profile/edit/<int:pk>/', ProfileEditView.as_view(), name='profile-edit'),
+    path('user-books/', BookListView.as_view(), name='user-books'),
+    path('users/', TemplateView.as_view(template_name='users.html'), name='users'),
+    path('requests/', TemplateView.as_view(template_name='requests.html'), name='requests'),
+    path('trades/', TemplateView.as_view(template_name='trades.html'), name='trades'),
+    path('books/', TemplateView.as_view(template_name='books.html'), name='books'),
 ]
 
 # urlpatterns = format_suffix_patterns([
-#     # path('', api_root),
-#     # path('users/', user_list, name='user-list'),
-#     # path('users/<int:pk>/', user_detail, name='user-detail'),
-#     # path('books/', book_list, name='book-list'),
-#     # path('books/<int:pk>/', book_detail, name='book-detail'),
-#     # path('trades/', trade_list, name='trade-list'),
-#     # path('trades/<int:pk>/', trade_detail, name='trade-detail'),
+#     path('', api_root),
+#     path('users/', user_list, name='user-list'),
+#     path('users/<int:pk>/', user_detail, name='user-detail'),
+#     path('books/', book_list, name='book-list'),
+#     path('books/<int:pk>/', book_detail, name='book-detail'),
+#     path('trades/', trade_list, name='trade-list'),
+#     path('trades/<int:pk>/', trade_detail, name='trade-detail'),
 # ])

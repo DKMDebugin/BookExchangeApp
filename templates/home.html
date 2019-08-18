@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block AdditionalStyling %}
+  <link rel="stylesheet" href="{% static 'static/style/home.css' %}{{'?v=1'}}">
+{% endblock %}
+{% block AdditionalScript %}
+  <!-- <script src="{% static 'static/script/requests.js' %}{{'?v=8'}}" charset="utf-8" defer></script> -->
+{% endblock %}
+
 
 {% block content %}
-  <h1>Homepage</h1>
-  <p>Hello {{ user.username }}!</p>
+<div class="container">
+  <h3>Welcome to Book Exchange</h3>
+  <p>A platform where your old books can be used as a form of exchange for other
+     books you might need. </p>
+  <p>To take advantage of the benefits that comes this platform, you need to create an account.</p>
+  <p>Check out the link below to create an account with us or just to log in.</p>
+  <a href="{% url 'login' %}">Click Here</a>
+</div>
 {% endblock %}

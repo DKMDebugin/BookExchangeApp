@@ -3,114 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Book Exchange</title>
-    <style>
+    {% include 'base/style.html' %}
+    {% block AdditionalStyling %}{% endblock %}
 
-      #nav-ul {
-        list-style-type: none;
-        display: fixed;
-        top: 0;
-        width: 81.1%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-      }
-      #body, #nav-ul {
-        /* right & left space to every direct child of <body> */
-        padding: 0 10%;
+    {% include 'base/script.html' %}
+    {% block AdditionalScript %}{% endblock %}
 
-      }
-      .nav-li {
-        /* create horizontal bar */
-        float: left;
-      }
-      .nav-user {
-        /* move login/logout to the left */
-        float: right;
-        /* padding-right: 10%; */
-      }
-      .nav-li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      .nav-home a {
-        padding-left: 2px;
-      }
-      /* Change background color when mouse hover */
-      .nav-li a:hover {
-        background: #111;
-      }
-      .active {
-        background: grey;
-      }
-      /* Drop down */
-      dropdown:hover .dropbtn {
-        background: ;
-      }
-      li.dropdown {
-        display: inline-block;
-      }
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-      }
-      .dropdown-content a:hover { background: #f1f1f1; }
-      .dropdown:hover .dropdown-content { display: block; }
-    </style>
   </head>
   <body>
-    <nav id="nav">
-      <ul id="nav-ul">
-        <li class="nav-li nav-home"><a class='active' href='#'>Book Exchange</a></li>
-        <li class="nav-li"><a class='' href='#'>Home</a></li>
-        <li class="nav-li"><a class='' href='#'>Books</a></li>
-        <li class="nav-li dropdown">
-          {% if user.is_authenticated %}
-          <a class='dropbtn' href='javascript:void(0)'>Requests</a>
-          <div class="dropdown-content">
-            <a href="#">All Request</a>
-            <a href="#">Create Request</a>
-          </div>
-          {% else %}
-          <a class='' href='#'>Requests</a>
-          {% endif %}
-        </li>
-        <li class="nav-li"><a class='' href='#'>Trades</a></li>
-        <li class="nav-li"><a class='' href='#'>Users</a></li>
-        <li class="nav-li nav-user {% if user.is_authenticated %}dropdown{% endif %}">
-          {% if user.is_authenticated %}
-            <a class='dropbtn' href="javascript:void(0)">{{ user.username }}</a>
-            <div class="dropdown-content">
-              <a  class='' href="#">Profile</a>
-              <a  class='' href="#">Edit Profile</a>
-              <a class='' href="#">My Books</a>
-              <a class='' href="{% url 'logout' %}">Logout</a>
-            </div>
-          {% else %}
-            <a class='active' href="{% url 'login' %}">Login</a>
-          {% endif %}
-        </li>
-      </ul>
-    </nav>
-    <hr>
-    <div id="body">
+    {% include 'base/nav.html' %}
+
+    <div class="body">
       {% block content %}
       {% endblock %}
     </div>
-    <hr>
   </body>
 </html>

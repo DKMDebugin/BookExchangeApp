@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block AdditionalStyling %}
+  <link rel="stylesheet" href="{% static 'static/style/users.css' %}{{'?v=3'}}">
+{% endblock %}
+{% block AdditionalScript %}
+  <script src="{% static 'static/script/users.js' %}{{'?v=8'}}" charset="utf-8" defer></script>
+{% endblock %}
+
+
+{% block content %}
+  <div class="spinner">
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+{% endblock %}
